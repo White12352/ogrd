@@ -68,7 +68,7 @@ jobs:
         chmod +x $DIY_P1_SH
         rm -rf openwrt/scripts/feeds
         cp -f arm_64/feeds openwrt/scripts/feeds
-        chmod +x openwrt/scripts/feeds
+        chmod 777 openwrt/scripts/feeds
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
 
