@@ -66,9 +66,9 @@ jobs:
         #svn co https://github.com/padavanonly/immortalwrt/branches/mt7622/target/linux/ramips openwrt/target/linux/ramips
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
         chmod +x $DIY_P1_SH
+        rm -rf openwrt/scripts/feeds
+        cp -f arm_64/feeds openwrt/scripts/feeds
         cd openwrt
-        rm -rf scripts/feeds
-        svn co https://github.com/White12352/onca/branches/main/arm_64/feeds scripts/feeds
         $GITHUB_WORKSPACE/$DIY_P1_SH
 
     - name: Update feeds
