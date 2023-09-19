@@ -100,41 +100,10 @@ jobs:
         ./transfer wet -s -p 16 --no-progress .config 2>&1 | tee wetransfer.log
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
         echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"
-    
-    - name: Download package
-      id: package
-      run: |
-        cd openwrt
-        make defconfig
-        make download -j8
-        find dl -size -1024c -exec ls -l {} \;
-        find dl -size -1024c -exec rm -f {} \;
-
-    - name: Compile the firmware
-      id: compile
-      run: |
-        cd openwrt
-        echo -e "$(nproc) thread compile"
-        make package/luci-app-adguardhome/compile -j$(nproc) || make package/luci-app-adguardhome/compile -j1 || make package/luci-app-adguardhome/compile -j1 V=s
-
-    - name: Check space usage
-      if: (!cancelled())
-      run: df -hT
 
     - name: Upload bin directory
       uses: actions/upload-artifact@main
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
         name: s
-        path: openwrt/bin/packages/*
-
-    - name: Remove old Artifacts
-      uses: c-hive/gha-remove-artifacts@v1.2.0
-      with:
-        age: '1 day'
-        skip-recent: 3
-      
-    - name: 删除旧的 workflow 运行记录
-      uses: GitRML/delete-workflow-runs@main
-      with:
-        retain_days: 30  
+        path: openwrt/.config
