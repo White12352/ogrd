@@ -21,7 +21,7 @@
 #sed -i 's/192.168.7.1/192.168.5.5/g' package/base-files/files/bin/config_generate
 #sed -i 's/192.168.8.1/192.168.5.5/g' package/base-files/files/bin/config_generate
 #sed -i 's/192.168.9.1/192.168.5.5/g' package/base-files/files/bin/config_generate
-sed -i 's/192.168.1.1/192.168.5.5/g' package/base-files/files/bin/config_generate
+#sed -i 's/192.168.1.1/192.168.5.5/g' package/base-files/files/bin/config_generate
 
 # 最大连接数修改为65535
 #sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=65535' package/base-files/files/etc/sysctl.conf
@@ -31,7 +31,6 @@ sed -i 's/192.168.1.1/192.168.5.5/g' package/base-files/files/bin/config_generat
 rm -rf feeds/packages/net/adguardhome
 rm -rf feeds/luci/applications/luci-app-adguardhome
 svn co https://github.com/zxlhhyccc/openwrt-package/branches/21.02/luci-app-adguardhome package/luci-app-adguardhome
-svn co https://github.com/zxlhhyccc/openwrt-package/branches/21.02/adguardhome package/adguardhome
 rm -rf feeds/packages/lang/golang
 svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang feeds/packages/lang/golang
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-easymesh package/luci-app-easymesh
