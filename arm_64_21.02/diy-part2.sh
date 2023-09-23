@@ -45,9 +45,11 @@ svn co https://github.com/281677160/openwrt-package/branches/Official/relevance/
 #rm -rf feeds/luci/applications/luci-app-vssr
 rm -rf feeds/luci/applications/luci-app-openclash
 git clone --depth 1 -b master https://github.com/vernesong/OpenClash package/luci-app-openclash
+cd package/luci-app-openclash
 pushd luci-app-openclash/tools/po2lmo
 make && sudo make install
 popd
+cd ../..
 #git clone --depth 1 -b packages https://github.com/xiaorouji/openwrt-passwall package/passwall
 #git clone --depth 1 -b luci https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
 #rm -rf feeds/luci/applications/luci-app-smartdns
