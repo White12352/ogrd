@@ -121,7 +121,10 @@ jobs:
           cd sdk
           $GITHUB_WORKSPACE/$DIY_P1_SH
           ./scripts/feeds update -a
-          ./scripts/feeds install -a
+          ./scripts/feeds install -d n luci-app-adguardhome
+          ./scripts/feeds install -d n adguardhome
+          ./scripts/feeds install -d n luci-app-smartdns
+          ./scripts/feeds install -d n smartdns
           cd ..
           [ -e $CONFIG_FILE ] && mv $CONFIG_FILE sdk/.config
           chmod +x $GITHUB_WORKSPACE/$DIY_P2_SH
