@@ -106,7 +106,7 @@ jobs:
           sudo -E apt-get -qq clean
 
       - name: sdk download
-        if: ${{ matrix.include.platform=='aarch64_cortex-a53_filogic' }}
+        if: matrix.platform == 'aarch64_cortex-a53_filogic'
         run: |
           wget ${{ matrix.url_sdk }}
           file_name=$(aarch64_cortex-a53_filogic)
@@ -129,7 +129,7 @@ jobs:
           $GITHUB_WORKSPACE/$DIY_P2_SH
       
       - name: ${{ matrix.platform }} sdk download
-        if: ${{ matrix.include.platform!='aarch64_cortex-a53_filogic' }}
+        if: matrix.platform != 'aarch64_cortex-a53_filogic'
         run: |
           wget ${{ matrix.url_sdk }}
           file_name=$(echo ${{matrix.url_sdk}} | awk -F/ '{print $NF}')
