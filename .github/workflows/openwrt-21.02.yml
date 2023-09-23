@@ -105,7 +105,31 @@ jobs:
           sudo -E apt-get -qq autoremove --purge
           sudo -E apt-get -qq clean
 
+      - name: sdk download
+        if: ${{ matrix.job.platform=='aarch64_cortex-a53_filogic' }}
+        run: |
+          wget ${{ matrix.url_sdk }}
+          file_name=$(aarch64_cortex-a53_filogic)
+          mkdir $GITHUB_WORKSPACE/sdk && tar -xJf $file_name -C $GITHUB_WORKSPACE/sdk --strip-components=1
+          cd $GITHUB_WORKSPACE/sdk
+          echo "src-git base https://github.com/openwrt/openwrt.git;openwrt-23.05" > feeds.conf
+          echo "src-git packages https://github.com/openwrt/packages.git;openwrt-23.05" >> feeds.conf
+          echo "src-git luci https://github.com/openwrt/luci.git;openwrt-23.05" >> feeds.conf
+          echo "src-git routing https://git.openwrt.org/feed/routing.git;openwrt-23.05"  >> feeds.conf
+          cd ..
+          chmod +x $GITHUB_WORKSPACE/$DIY_P1_SH
+          cd sdk
+          $GITHUB_WORKSPACE/$DIY_P1_SH
+          ./scripts/feeds update -a
+          ./scripts/feeds install -d n luci-app-adguardhome
+          cd ..
+          [ -e $CONFIG_FILE ] && mv $CONFIG_FILE sdk/.config
+          chmod +x $GITHUB_WORKSPACE/$DIY_P2_SH
+          cd sdk
+          $GITHUB_WORKSPACE/$DIY_P2_SH
+      
       - name: ${{ matrix.platform }} sdk download
+        if: ${{ matrix.job.platform!='aarch64_cortex-a53_filogic' }}
         run: |
           wget ${{ matrix.url_sdk }}
           file_name=$(echo ${{matrix.url_sdk}} | awk -F/ '{print $NF}')
