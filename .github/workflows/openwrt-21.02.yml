@@ -121,7 +121,7 @@ jobs:
           cd sdk
           $GITHUB_WORKSPACE/$DIY_P1_SH
           ./scripts/feeds update -a
-          ./scripts/feeds install -d n luci-app-adguardhome
+          ./scripts/feeds install -a
           cd ..
           [ -e $CONFIG_FILE ] && mv $CONFIG_FILE sdk/.config
           chmod +x $GITHUB_WORKSPACE/$DIY_P2_SH
@@ -160,6 +160,9 @@ jobs:
           echo -e "$(nproc) thread compile"
           make package/luci-app-adguardhome/compile -j1 V=s
           make package/adguardhome/compile -j1 V=s
+          make package/luci-app-smartdns/compile -j1 V=s
+          make package/smartdns/compile -j1 V=s
+          
       - name: Check space usage
         if: (!cancelled())
         run: df -hT
