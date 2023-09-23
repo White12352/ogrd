@@ -152,8 +152,7 @@ jobs:
         run: |
           cd sdk
           echo -e "$(nproc) thread compile"
-          make package/luci-app-adguardhome/compile -j$(nproc) || make package/luci-app-adguardhome/compile -j1 || make package/luci-app-adguardhome/compile -j1 V=s
-
+          make package/luci-app-adguardhome/compile -j1 V=s
       - name: Check space usage
         if: (!cancelled())
         run: df -hT
