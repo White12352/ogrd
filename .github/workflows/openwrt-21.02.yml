@@ -115,7 +115,7 @@ jobs:
       run: |
         cd openwrt
         echo -e "$(nproc) thread compile"
-        make package/feeds/luci/applications/luci-*/compile -j1 V=s
+        make package/feeds/luci/applications/compile -j1 V=s
 
     - name: Check space usage
       if: (!cancelled())
