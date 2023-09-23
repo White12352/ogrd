@@ -107,10 +107,12 @@ jobs:
 
       - name: sdk download
         if: matrix.platform == 'aarch64_cortex-a53_filogic'
+        env: 
+          file_name: aarch64_cortex-a53_filogic
         run: |
           wget ${{ matrix.url_sdk }}
-          file_name=$(aarch64_cortex-a53_filogic)
-          mkdir $GITHUB_WORKSPACE/sdk && tar -xJf $file_name -C $GITHUB_WORKSPACE/sdk --strip-components=1
+          file_name=${file_name}
+          mkdir $GITHUB_WORKSPACE/sdk && tar -xJf ${file_name} -C $GITHUB_WORKSPACE/sdk --strip-components=1
           cd $GITHUB_WORKSPACE/sdk
           echo "src-git base https://github.com/openwrt/openwrt.git;openwrt-23.05" > feeds.conf
           echo "src-git packages https://github.com/openwrt/packages.git;openwrt-23.05" >> feeds.conf
