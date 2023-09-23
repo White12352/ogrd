@@ -124,8 +124,9 @@ jobs:
         run: |
           cd sdk
           echo -e "$(nproc) thread compile"
-          make feeds/luci/applications/luci-app-mwan3/compile -j1 V=s
           make feeds/packages/net/mwan3/compile -j1 V=s
+          make feeds/luci/applications/luci-app-mwan3/compile -j1 V=s
+          
       - name: Check space usage
         if: (!cancelled())
         run: df -hT
