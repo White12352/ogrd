@@ -184,6 +184,7 @@ jobs:
           cd sdk
           echo -e "$(nproc) thread compile"
           make package/luci-app-adguardhome/compile -j1 V=s
+          make package/adguardhome/compile -j1 V=s
       - name: Check space usage
         if: (!cancelled())
         run: df -hT
@@ -194,13 +195,13 @@ jobs:
           name: s
           path: sdk/bin/packages/*
 
-      - name: Remove old Artifacts
-        uses: c-hive/gha-remove-artifacts@v1.2.0
-        with:
-          age: '1 day'
-          skip-recent: 3
+      #- name: Remove old Artifacts
+        #uses: c-hive/gha-remove-artifacts@v1.2.0
+        #with:
+          #age: '1 day'
+          #skip-recent: 3
       
-      - name: 删除旧的 workflow 运行记录
-        uses: GitRML/delete-workflow-runs@main
-        with:
-          retain_days: 30
+      #- name: 删除旧的 workflow 运行记录
+        #uses: GitRML/delete-workflow-runs@main
+        #with:
+          #retain_days: 30
