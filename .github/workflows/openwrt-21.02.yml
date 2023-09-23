@@ -101,8 +101,8 @@ jobs:
         run: |
           wget ${{ matrix.url_sdk }}
           file_name=$(echo ${{matrix.url_sdk}} | awk -F/ '{print $NF}')
-          mkdir sdk && tar -xJf $file_name -C ./sdk --strip-components=1
-          cd sdk
+          mkdir $GITHUB_WORKSPACE/sdk && tar -xJf $file_name -C $GITHUB_WORKSPACE/sdk --strip-components=1
+          cd $GITHUB_WORKSPACE/sdk
           echo "src-git base https://github.com/openwrt/openwrt.git;openwrt-23.05" > feeds.conf
           echo "src-git packages https://github.com/openwrt/packages.git;openwrt-23.05" >> feeds.conf
           echo "src-git luci https://github.com/openwrt/luci.git;openwrt-23.05" >> feeds.conf
