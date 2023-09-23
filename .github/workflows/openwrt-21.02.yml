@@ -108,7 +108,7 @@ jobs:
       - name: sdk download
         if: matrix.platform == 'aarch64_cortex-a53_filogic'
         env: 
-          file_name: aarch64_cortex-a53_filogic
+          file_name: openwrt-sdk-23.05.0-rc3-mediatek-filogic_gcc-12.3.0_musl.Linux-x86_64.tar.xz
         run: |
           wget ${{ matrix.url_sdk }}
           file_name=${file_name}
