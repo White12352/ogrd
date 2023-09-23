@@ -52,10 +52,10 @@ popd
 cd ../..
 #git clone --depth 1 -b packages https://github.com/xiaorouji/openwrt-passwall package/passwall
 #git clone --depth 1 -b luci https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
-#rm -rf feeds/luci/applications/luci-app-smartdns
-#rm -rf feeds/packages/net/smartdns
-#svn co https://github.com/281677160/openwrt-package/branches/21.02/luci-app-smartdns package/luci-app-smartdns
-#svn co https://github.com/281677160/openwrt-package/branches/21.02/smartdns package/smartdns
+rm -rf feeds/luci/applications/luci-app-smartdns
+rm -rf feeds/packages/net/smartdns
+git clone --depth=1 https://github.com/pymumu/luci-app-smartdns.git package/luci-app-smartdns
+git clone --depth=1 https://github.com/pymumu/openwrt-smartdns.git package/smartdns
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/aliyundrive-webdav package/aliyundrive-webdav
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-aliyundrive-webdav package/luci-app-aliyundrive-webdav
 #git clone --depth=1 https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
