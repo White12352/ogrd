@@ -43,10 +43,10 @@ jobs:
           - platform: aarch64_generic
             url_sdk: https://downloads.openwrt.org/releases/23.05.0-rc3/targets/rockchip/armv8/openwrt-sdk-23.05.0-rc3-rockchip-armv8_gcc-12.3.0_musl.Linux-x86_64.tar.xz
 
-          - platform: aarch64_cortex-a53
-            url_sdk: https://downloads.openwrt.org/releases/23.05.0-rc3/targets/mvebu/cortexa53/openwrt-sdk-23.05.0-rc3-mvebu-cortexa53_gcc-12.3.0_musl.Linux-x86_64.tar.xz
+          #- platform: aarch64_cortex-a53
+            #url_sdk: https://downloads.openwrt.org/releases/23.05.0-rc3/targets/mvebu/cortexa53/openwrt-sdk-23.05.0-rc3-mvebu-cortexa53_gcc-12.3.0_musl.Linux-x86_64.tar.xz
 
-          - platform: aarch64_cortex-a53_filogic
+          - platform: aarch64_cortex-a53
             url_sdk: https://downloads.openwrt.org/releases/23.05.0-rc3/targets/mediatek/filogic/openwrt-sdk-23.05.0-rc3-mediatek-filogic_gcc-12.3.0_musl.Linux-x86_64.tar.xz
           
           - platform: aarch64_cortex-a72
@@ -104,34 +104,9 @@ jobs:
           sudo -E apt-get -yqq install ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential bzip2 ccache clang clangd cmake cpio curl device-tree-compiler ecj fastjar flex gawk gettext gcc-multilib g++-multilib git gperf haveged help2man intltool lib32gcc-s1 libc6-dev-i386 libelf-dev libfuse-dev libglib2.0-dev libgmp3-dev libltdl-dev libmpc-dev libmpfr-dev libncurses5-dev libncursesw5 libncursesw5-dev libreadline-dev libssl-dev libtool lld lldb lrzsz mkisofs msmtp nano ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 python3-pip python3-ply python-docutils qemu-utils re2c rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
           sudo -E apt-get -qq autoremove --purge
           sudo -E apt-get -qq clean
-
-      - name: sdk download
-        if: matrix.platform == 'aarch64_cortex-a53_filogic'
-        env: 
-          file_name: openwrt-sdk-23.05.0-rc3-mediatek-filogic_gcc-12.3.0_musl.Linux-x86_64.tar.xz
-        run: |
-          wget ${{ matrix.url_sdk }}
-          file_name=${file_name}
-          mkdir $GITHUB_WORKSPACE/sdk && tar -xJf ${file_name} -C $GITHUB_WORKSPACE/sdk --strip-components=1
-          cd $GITHUB_WORKSPACE/sdk
-          echo "src-git base https://github.com/openwrt/openwrt.git;openwrt-23.05" > feeds.conf
-          echo "src-git packages https://github.com/openwrt/packages.git;openwrt-23.05" >> feeds.conf
-          echo "src-git luci https://github.com/openwrt/luci.git;openwrt-23.05" >> feeds.conf
-          echo "src-git routing https://git.openwrt.org/feed/routing.git;openwrt-23.05"  >> feeds.conf
-          cd ..
-          chmod +x $GITHUB_WORKSPACE/$DIY_P1_SH
-          cd sdk
-          $GITHUB_WORKSPACE/$DIY_P1_SH
-          ./scripts/feeds update -a
-          ./scripts/feeds install -d n luci-app-adguardhome
-          cd ..
-          [ -e $CONFIG_FILE ] && mv $CONFIG_FILE sdk/.config
-          chmod +x $GITHUB_WORKSPACE/$DIY_P2_SH
-          cd sdk
-          $GITHUB_WORKSPACE/$DIY_P2_SH
       
       - name: ${{ matrix.platform }} sdk download
-        if: matrix.platform != 'aarch64_cortex-a53_filogic'
+        #if: matrix.platform != 'aarch64_cortex-a53_filogic'
         run: |
           wget ${{ matrix.url_sdk }}
           file_name=$(echo ${{matrix.url_sdk}} | awk -F/ '{print $NF}')
