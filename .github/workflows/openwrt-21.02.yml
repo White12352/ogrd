@@ -46,6 +46,9 @@ jobs:
           - platform: aarch64_cortex-a53
             url_sdk: https://downloads.openwrt.org/releases/23.05.0-rc3/targets/mvebu/cortexa53/openwrt-sdk-23.05.0-rc3-mvebu-cortexa53_gcc-12.3.0_musl.Linux-x86_64.tar.xz
 
+          - platform: aarch64_cortex-a53_filogic
+            url_sdk: https://downloads.openwrt.org/releases/23.05.0-rc3/targets/mediatek/filogic/openwrt-sdk-23.05.0-rc3-mediatek-filogic_gcc-12.3.0_musl.Linux-x86_64.tar.xz
+          
           - platform: aarch64_cortex-a72
             url_sdk: https://downloads.openwrt.org/releases/23.05.0-rc3/targets/mvebu/cortexa72/openwrt-sdk-23.05.0-rc3-mvebu-cortexa72_gcc-12.3.0_musl.Linux-x86_64.tar.xz
 
