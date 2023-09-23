@@ -108,14 +108,14 @@ jobs:
           echo "src-git luci https://github.com/openwrt/luci.git;openwrt-23.05" >> feeds.conf
           echo "src-git routing https://git.openwrt.org/feed/routing.git;openwrt-23.05"  >> feeds.conf
           cd ..
-          chmod +x $DIY_P1_SH
+          chmod +x $GITHUB_WORKSPACE/$DIY_P1_SH
           cd sdk
           $GITHUB_WORKSPACE/$DIY_P1_SH
           ./scripts/feeds update -a
           ./scripts/feeds install -d n luci-app-adguardhome
           cd ..
           [ -e $CONFIG_FILE ] && mv $CONFIG_FILE sdk/.config
-          chmod +x $DIY_P2_SH
+          chmod +x $GITHUB_WORKSPACE/$DIY_P2_SH
           cd sdk
           $GITHUB_WORKSPACE/$DIY_P2_SH
 
@@ -142,6 +142,7 @@ jobs:
           cd sdk
           make defconfig
           make download -j8
+          find dl -size -1024c -exec ls -l {} \;
 
       - name: Compile the firmware
         id: compile
