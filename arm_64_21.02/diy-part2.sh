@@ -31,7 +31,8 @@
 rm -rf feeds/packages/net/adguardhome
 rm -rf feeds/luci/applications/luci-app-adguardhome
 svn co https://github.com/281677160/openwrt-package/branches/Official/luci-app-adguardhome package/luci-app-adguardhome
-svn co https://github.com/White12352/openwrt-package/branches/Official/relevance/adguardhome package/adguardhome
+#svn co https://github.com/White12352/openwrt-package/branches/Official/relevance/adguardhome package/adguardhome
+svn co https://github.com/kenzok8/openwrt-packages/trunk/adguardhome package/adguardhome
 #rm -rf feeds/packages/lang/golang
 #svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang feeds/packages/lang/golang
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-easymesh package/luci-app-easymesh
