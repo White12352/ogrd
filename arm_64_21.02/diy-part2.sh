@@ -34,8 +34,10 @@
 #svn co https://github.com/281677160/openwrt-package/branches/Official/relevance/adguardhome package/adguardhome
 rm -rf feeds/packages/net/mwan3
 rm -rf feeds/luci/applications/luci-app-mwan3
-svn co https://github.com/White12352/luci/branches/openwrt-21.02/applications/luci-app-mwan3 package/luci-app-mwan3
-svn co https://github.com/White12352/packages/branches/openwrt-21.02/net/mwan3 package/mwan3
+#svn co https://github.com/White12352/luci/branches/openwrt-21.02/applications/luci-app-mwan3 package/luci-app-mwan3
+#svn co https://github.com/White12352/packages/branches/openwrt-21.02/net/mwan3 package/mwan3
+svn co https://github.com/kiddin9/openwrt-packages/branches/luci-app-mwan3 package/luci-app-mwan3
+svn co https://github.com/kiddin9/openwrt-packages/branches/mwan3 package/mwan3
 #rm -rf feeds/packages/lang/golang
 #svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang feeds/packages/lang/golang
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-easymesh package/luci-app-easymesh
