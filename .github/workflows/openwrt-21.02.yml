@@ -163,8 +163,8 @@ jobs:
           echo -e "$(nproc) thread compile"
           make package/luci-app-adguardhome/{clean,compile} -j$(nproc)
           make package/adguardhome/{clean,compile} -j$(nproc)
-          #make package/luci-app-smartdns/{clean,compile} -j$(nproc)
-          #make package/smartdns/{clean,compile} -j$(nproc)
+          make package/luci-app-smartdns/{clean,compile} -j$(nproc)
+          make package/smartdns/{clean,compile} -j$(nproc)
           
       - name: Check space usage
         if: (!cancelled())
