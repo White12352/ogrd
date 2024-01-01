@@ -43,11 +43,13 @@ rm -rf t
 #svn co https://github.com/immortalwrt/packages/trunk/net/adguardhome feeds/packages/net/adguardhome
 git clone --depth=1 -b master https://github.com/immortalwrt/packages.git i
 cp -rf i/net/adguardhome feeds/packages/net
-git clone --depth=1 -b openwrt-18.06 https://github.com/openwrt/packages.git w
+git clone --depth=1 -b master https://github.com/openwrt/packages.git w
 rm -rf feeds/packages/lang/node
 cp -rf w/lang/node feeds/packages/lang
 #cp -rf i/net/adguardhome feeds/packages/net
-#rm -rf feeds/packages/lang/golang
+rm -rf feeds/packages/lang/golang
+cp -rf w/lang/golang feeds/packages/lang
+rm -rf w
 #svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang feeds/packages/lang/golang
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-easymesh package/luci-app-easymesh
 #git clone --depth=1 https://github.com/ntlf9t/luci-app-easymesh.git package/luci-app-easymesh
