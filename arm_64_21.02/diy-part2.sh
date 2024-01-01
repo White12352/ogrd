@@ -30,6 +30,7 @@
 # git clone https://github.com/small-5/luci-app-adblock-plus package/adblock-plus
 rm -rf feeds/packages/net/adguardhome
 rm -rf feeds/luci/applications/luci-app-adguardhome
+#svn co https://github.com/281677160/openwrt-package/branches/Lede/luci-app-adguardhome package/luci-app-adguardhome
 svn co https://github.com/281677160/openwrt-package/branches/Lede/luci-app-adguardhome package/luci-app-adguardhome
 #svn co https://github.com/White12352/openwrt-package/branches/Official/relevance/adguardhome package/adguardhome
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/adguardhome package/adguardhome
