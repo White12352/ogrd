@@ -171,7 +171,7 @@ jobs:
         run: df -hT
 
       - name: Upload bin directory
-        uses: actions/upload-artifact@main
+        uses: actions/upload-artifact@v3.1.3
         with:
           name: s
           path: sdk/bin/packages/*
