@@ -30,7 +30,7 @@
 # git clone https://github.com/small-5/luci-app-adblock-plus package/adblock-plus
 rm -rf feeds/packages/net/adguardhome
 rm -rf feeds/luci/applications/luci-app-adguardhome
-svn co https://github.com/281677160/openwrt-package/branches/Official/luci-app-adguardhome package/luci-app-adguardhome
+svn co https://github.com/281677160/openwrt-package/branches/Lede/luci-app-adguardhome package/luci-app-adguardhome
 #svn co https://github.com/White12352/openwrt-package/branches/Official/relevance/adguardhome package/adguardhome
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/adguardhome package/adguardhome
 svn co https://github.com/immortalwrt/packages/trunk/net/adguardhome feeds/packages/net/adguardhome
@@ -56,7 +56,7 @@ cd ../..
 #git clone --depth 1 -b luci https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
 rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/packages/net/smartdns
-git clone --depth=1 -b master https://github.com/White12352/luci-app-smartdns.git package/luci-app-smartdns
+git clone --depth=1 -b lede https://github.com/White12352/luci-app-smartdns.git package/luci-app-smartdns
 #git clone --depth=1 https://github.com/White12352/openwrt-smartdns.git package/smartdns
 svn co https://github.com/immortalwrt/packages/trunk/net/smartdns feeds/packages/net/smartdns
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/aliyundrive-webdav package/aliyundrive-webdav
