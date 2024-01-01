@@ -40,7 +40,9 @@ svn co https://github.com/openwrt/packages/branches/openwrt-23.05/lang/golang fe
 git clone --depth=1 -b Lede https://github.com/281677160/openwrt-package.git t
 cp -rf t/luci-app-adguardhome package
 rm -rf t
-svn co https://github.com/immortalwrt/packages/trunk/net/adguardhome feeds/packages/net/adguardhome
+#svn co https://github.com/immortalwrt/packages/trunk/net/adguardhome feeds/packages/net/adguardhome
+git clone --depth=1 -b master https://github.com/immortalwrt/packages.git i
+cp -rf i/net/adguardhome feeds/packages/net
 #rm -rf feeds/packages/lang/golang
 #svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang feeds/packages/lang/golang
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-easymesh package/luci-app-easymesh
@@ -65,7 +67,9 @@ rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/packages/net/smartdns
 git clone --depth=1 -b lede https://github.com/White12352/luci-app-smartdns.git package/luci-app-smartdns
 #git clone --depth=1 https://github.com/White12352/openwrt-smartdns.git package/smartdns
-svn co https://github.com/immortalwrt/packages/trunk/net/smartdns feeds/packages/net/smartdns
+#svn co https://github.com/immortalwrt/packages/trunk/net/smartdns feeds/packages/net/smartdns
+cp -rf i/net/smartdns feeds/packages/net
+rm -rf i
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/aliyundrive-webdav package/aliyundrive-webdav
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-aliyundrive-webdav package/luci-app-aliyundrive-webdav
 #git clone --depth=1 https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
