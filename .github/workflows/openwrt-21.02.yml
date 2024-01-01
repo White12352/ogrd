@@ -165,9 +165,9 @@ jobs:
           #make package/luci-app-adguardhome/{clean,compile} j1 V=s
           #make feeds/packages/net/adguardhome/{clean,compile} j1 V=s
           make package/luci-app-adguardhome/{clean,compile} -j$(nproc)
-          #make feeds/packages/net/adguardhome/{clean,compile} -j$(nproc)
+          make package/adguardhome/{clean,compile} -j$(nproc)
           make package/luci-app-smartdns/{clean,compile} -j$(nproc)
-          make feeds/packages/net/smartdns/{clean,compile} -j$(nproc)
+          make package/smartdns/{clean,compile} -j$(nproc)
           make package/luci-app-unblockneteasemusic/{clean,compile} -j$(nproc)
           
       - name: Check space usage
