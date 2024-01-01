@@ -125,6 +125,7 @@ jobs:
           ./scripts/feeds install -d n adguardhome
           ./scripts/feeds install -d n luci-app-smartdns
           ./scripts/feeds install -d n smartdns
+          ./scripts/feeds install -d n luci-app-unblockneteasemusic
           cd ..
           [ -e $CONFIG_FILE ] && mv $CONFIG_FILE sdk/.config
           chmod +x $GITHUB_WORKSPACE/$DIY_P2_SH
@@ -167,6 +168,7 @@ jobs:
           #make package/adguardhome/{clean,compile} -j$(nproc)
           make package/luci-app-smartdns/{clean,compile} -j$(nproc)
           #make package/smartdns/{clean,compile} -j$(nproc)
+          make package/luci-app-unblockneteasemusic/{clean,compile} -j$(nproc)
           
       - name: Check space usage
         if: (!cancelled())
