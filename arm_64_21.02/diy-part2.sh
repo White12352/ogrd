@@ -36,7 +36,7 @@ rm -rf feeds/luci/applications/luci-app-adguardhome
 #svn co https://github.com/White12352/openwrt-package/branches/Official/relevance/adguardhome package/adguardhome
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/adguardhome package/adguardhome
 git clone --depth=1 -b Lede https://github.com/281677160/openwrt-package.git t
-cp -rf t/luci-app-adguardhome package/adguardhome
+cp -rf t/luci-app-adguardhome package
 rm -rf t
 svn co https://github.com/immortalwrt/packages/trunk/net/adguardhome feeds/packages/net/adguardhome
 #rm -rf feeds/packages/lang/golang
