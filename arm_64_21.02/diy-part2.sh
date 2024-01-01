@@ -43,8 +43,9 @@ rm -rf t
 #svn co https://github.com/immortalwrt/packages/trunk/net/adguardhome feeds/packages/net/adguardhome
 git clone --depth=1 -b master https://github.com/immortalwrt/packages.git i
 cp -rf i/net/adguardhome feeds/packages/net
+git clone --depth=1 -b openwrt-18.06 https://github.com/openwrt/packages.git o
 rm -rf feeds/packages/lang/node
-cp -rf i/lang/node feeds/packages/lang
+cp -rf o/lang/node feeds/packages/lang
 #cp -rf i/net/adguardhome feeds/packages/net
 #rm -rf feeds/packages/lang/golang
 #svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang feeds/packages/lang/golang
