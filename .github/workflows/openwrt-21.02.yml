@@ -38,7 +38,7 @@ jobs:
       matrix:
         include:
           - platform: x86_64
-            url_sdk: https://downloads.immortalwrt.org/releases/18.06-k5.4-SNAPSHOT/targets/x86/64/immortalwrt-sdk-18.06-k5.4-SNAPSHOT-x86-64_gcc-8.4.0_musl.Linux-x86_64.tar.xz
+            url_sdk: https://downloads.immortalwrt.org/releases/21.02-SNAPSHOT/targets/x86/64/immortalwrt-sdk-21.02-SNAPSHOT-x86-64_gcc-8.4.0_musl.Linux-x86_64.tar.xz
 
           #- platform: aarch64_generic
             #url_sdk: https://downloads.openwrt.org/releases/23.05.0-rc3/targets/rockchip/armv8/openwrt-sdk-23.05.0-rc3-rockchip-armv8_gcc-12.3.0_musl.Linux-x86_64.tar.xz
@@ -47,10 +47,10 @@ jobs:
             #url_sdk: https://downloads.openwrt.org/releases/23.05.0-rc3/targets/mvebu/cortexa53/openwrt-sdk-23.05.0-rc3-mvebu-cortexa53_gcc-12.3.0_musl.Linux-x86_64.tar.xz
 
           - platform: aarch64_cortex-a53
-            url_sdk: https://downloads.immortalwrt.org/releases/18.06-k5.4-SNAPSHOT/targets/mvebu/cortexa53/immortalwrt-sdk-18.06-k5.4-SNAPSHOT-mvebu-cortexa53_gcc-8.4.0_musl.Linux-x86_64.tar.xz
+            url_sdk: https://downloads.immortalwrt.org/releases/21.02-SNAPSHOT/targets/mvebu/cortexa53/immortalwrt-sdk-21.02-SNAPSHOT-mvebu-cortexa53_gcc-8.4.0_musl.Linux-x86_64.tar.xz
           
           - platform: aarch64_cortex-a72
-            url_sdk: https://downloads.immortalwrt.org/releases/18.06-k5.4-SNAPSHOT/targets/mvebu/cortexa72/immortalwrt-sdk-18.06-k5.4-SNAPSHOT-mvebu-cortexa72_gcc-8.4.0_musl.Linux-x86_64.tar.xz
+            url_sdk: https://downloads.immortalwrt.org/releases/21.02-SNAPSHOT/targets/mvebu/cortexa72/immortalwrt-sdk-21.02-SNAPSHOT-mvebu-cortexa72_gcc-8.4.0_musl.Linux-x86_64.tar.xz
 
           #- platform: arm_cortex-a7
             #url_sdk: https://downloads.openwrt.org/releases/23.05.0-rc3/targets/mediatek/mt7629/openwrt-sdk-23.05.0-rc3-mediatek-mt7629_gcc-12.3.0_musl_eabi.Linux-x86_64.tar.xz
@@ -83,7 +83,7 @@ jobs:
             #url_sdk: https://downloads.openwrt.org/releases/23.05.0-rc3/targets/bcm63xx/generic/openwrt-sdk-23.05.0-rc3-bcm63xx-generic_gcc-12.3.0_musl.Linux-x86_64.tar.xz
 
           - platform: mipsel_24kc
-            url_sdk: https://downloads.immortalwrt.org/releases/18.06-k5.4-SNAPSHOT/targets/ramips/mt7621/immortalwrt-sdk-18.06-k5.4-SNAPSHOT-ramips-mt7621_gcc-8.4.0_musl.Linux-x86_64.tar.xz
+            url_sdk: https://downloads.immortalwrt.org/releases/21.02-SNAPSHOT/targets/ramips/mt7621/immortalwrt-sdk-21.02-SNAPSHOT-ramips-mt7621_gcc-8.4.0_musl.Linux-x86_64.tar.xz
 
           #- platform: mipsel_74kc
             #url_sdk: https://downloads.openwrt.org/releases/23.05.0-rc3/targets/ramips/rt3883/openwrt-sdk-23.05.0-rc3-ramips-rt3883_gcc-12.3.0_musl.Linux-x86_64.tar.xz
@@ -112,10 +112,10 @@ jobs:
           file_name=$(echo ${{matrix.url_sdk}} | awk -F/ '{print $NF}')
           mkdir $GITHUB_WORKSPACE/sdk && tar -xJf $file_name -C $GITHUB_WORKSPACE/sdk --strip-components=1
           cd $GITHUB_WORKSPACE/sdk
-          echo "src-git base https://github.com/immortalwrt/immortalwrt.git;openwrt-18.06-k5.4" > feeds.conf
-          echo "src-git packages https://github.com/immortalwrt/packages.git;openwrt-18.06" >> feeds.conf
-          echo "src-git luci https://github.com/immortalwrt/luci.git;openwrt-18.06-k5.4" >> feeds.conf
-          echo "src-git routing https://git.openwrt.org/feed/routing.git;openwrt-18.06"  >> feeds.conf
+          echo "src-git base https://github.com/immortalwrt/immortalwrt.git;openwrt-21.02" > feeds.conf
+          echo "src-git packages https://github.com/immortalwrt/packages.git;openwrt-21.02" >> feeds.conf
+          echo "src-git luci https://github.com/immortalwrt/luci.git;openwrt-21.02" >> feeds.conf
+          echo "src-git routing https://git.openwrt.org/feed/routing.git;openwrt-21.02"  >> feeds.conf
           cd ..
           chmod +x $GITHUB_WORKSPACE/$DIY_P1_SH
           cd sdk
