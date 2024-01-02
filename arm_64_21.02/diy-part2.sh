@@ -37,7 +37,7 @@ rm -rf feeds/luci/applications/luci-app-adguardhome
 #svn co https://github.com/White12352/openwrt-package/branches/Lede/luci-app-adguardhome package/luci-app-adguardhome
 #svn co https://github.com/White12352/openwrt-package/branches/Official/relevance/adguardhome package/adguardhome
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/adguardhome package/adguardhome
-git clone --depth=1 -b Lede https://github.com/281677160/openwrt-package.git t
+git clone --depth=1 -b Official https://github.com/281677160/openwrt-package.git t
 cp -rf t/luci-app-adguardhome package
 rm -rf t
 #svn co https://github.com/immortalwrt/packages/trunk/net/adguardhome feeds/packages/net/adguardhome
@@ -72,12 +72,12 @@ cd ../..
 #git clone --depth 1 -b luci https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
 rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/packages/net/smartdns
-git clone --depth=1 -b lede https://github.com/White12352/luci-app-smartdns.git package/luci-app-smartdns
+git clone --depth=1 -b master https://github.com/White12352/luci-app-smartdns.git package/luci-app-smartdns
 #git clone --depth=1 https://github.com/White12352/openwrt-smartdns.git package/smartdns
 #svn co https://github.com/immortalwrt/packages/trunk/net/smartdns feeds/packages/net/smartdns
 cp -rf i/net/smartdns feeds/packages/net
 rm -rf i
-git clone --branch master https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
+git clone --branch js https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/aliyundrive-webdav package/aliyundrive-webdav
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-aliyundrive-webdav package/luci-app-aliyundrive-webdav
 #git clone --depth=1 https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
