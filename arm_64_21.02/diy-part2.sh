@@ -44,13 +44,14 @@ rm -rf t
 git clone --depth=1 -b master https://github.com/immortalwrt/packages.git i
 cp -rf i/net/adguardhome feeds/packages/net
 git clone --depth=1 -b master https://github.com/openwrt/packages.git w
-git clone --depth=1 -b master https://github.com/coolsnowwolf/packages.git an
+#git clone --depth=1 -b master https://github.com/coolsnowwolf/packages.git an
 rm -rf feeds/packages/lang/node
-cp -rf an/lang/node feeds/packages/lang
+cp -rf w/lang/node feeds/packages/lang
 #cp -rf i/net/adguardhome feeds/packages/net
 rm -rf feeds/packages/lang/golang
 cp -rf w/lang/golang feeds/packages/lang
 rm -rf w
+#rm -rf an
 #svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang feeds/packages/lang/golang
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-easymesh package/luci-app-easymesh
 #git clone --depth=1 https://github.com/ntlf9t/luci-app-easymesh.git package/luci-app-easymesh
