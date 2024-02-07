@@ -42,10 +42,10 @@ cp -rf t/luci-app-adguardhome package
 rm -rf t
 #svn co https://github.com/immortalwrt/packages/trunk/net/adguardhome feeds/packages/net/adguardhome
 git clone --depth=1 -b master https://github.com/immortalwrt/packages.git i
-sed -i 's/PKG_BUILD_FLAGS:=no-mips16/PKG_USE_MIPS16:=0/g' i/net/adguardhome/Makefile
-sed -i 's/$(eval $(call Download,adguardhome-frontend))/define Build\/Compile\n\t( \n\t\tpushd $(PKG_BUILD_DIR) ; \n\t\texport NODE_OPTIONS=--openssl-legacy-provider ; \n\t\tmake js-deps js-build ; \n\t\tpopd ; \n\t\t$(call GoPackage\/Build\/Compile) ; \n\t)\nendef\n\n\$$\(eval \$$\(call Download,adguardhome-frontend\))/g' i/net/adguardhome/Makefile
-cp -rf i/net/adguardhome feeds/packages/net
 git clone --depth=1 -b master https://github.com/openwrt/packages.git w
+sed -i 's/PKG_BUILD_FLAGS:=no-mips16/PKG_USE_MIPS16:=0/g' w/net/adguardhome/Makefile
+#sed -i 's/$(eval $(call Download,adguardhome-frontend))/define Build\/Compile\n\t( \n\t\tpushd $(PKG_BUILD_DIR) ; \n\t\texport NODE_OPTIONS=--openssl-legacy-provider ; \n\t\tmake js-deps js-build ; \n\t\tpopd ; \n\t\t$(call GoPackage\/Build\/Compile) ; \n\t)\nendef\n\n\$$\(eval \$$\(call Download,adguardhome-frontend\))/g' i/net/adguardhome/Makefile
+cp -rf w/net/adguardhome feeds/packages/net
 #git clone --depth=1 -b master https://github.com/coolsnowwolf/packages.git an
 #git clone --depth=1 -b openwrt-18.06 https://github.com/openwrt/packages.git wl
 rm -rf feeds/packages/lang/node
