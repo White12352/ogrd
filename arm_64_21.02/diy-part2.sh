@@ -42,6 +42,7 @@ cp -rf t/luci-app-adguardhome package
 rm -rf t
 #svn co https://github.com/immortalwrt/packages/trunk/net/adguardhome feeds/packages/net/adguardhome
 git clone --depth=1 -b master https://github.com/immortalwrt/packages.git i
+sed -i 's/PKG_BUILD_FLAGS:=no-mips16/PKG_USE_MIPS16:=0/g' i/net/adguardhome
 cp -rf i/net/adguardhome feeds/packages/net
 git clone --depth=1 -b master https://github.com/openwrt/packages.git w
 #git clone --depth=1 -b master https://github.com/coolsnowwolf/packages.git an
