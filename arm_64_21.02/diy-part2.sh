@@ -46,10 +46,10 @@ cp -rf i/net/adguardhome feeds/packages/net
 git clone --depth=1 -b master https://github.com/openwrt/packages.git w
 #git clone --depth=1 -b master https://github.com/coolsnowwolf/packages.git an
 rm -rf feeds/packages/lang/node
-cp -rf i/lang/node feeds/packages/lang
+cp -rf w/lang/node feeds/packages/lang
 #cp -rf i/net/adguardhome feeds/packages/net
 rm -rf feeds/packages/lang/golang
-cp -rf i/lang/golang feeds/packages/lang
+cp -rf w/lang/golang feeds/packages/lang
 rm -rf w
 #rm -rf an
 #svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang feeds/packages/lang/golang
